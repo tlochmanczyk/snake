@@ -1,6 +1,8 @@
 import arcade
 import random
-import snake_game
+print('dupa')
+#import snake_game
+from .snake_game import Game
 
 SQUARE_SIZE = 25
 MARGIN = 5
@@ -17,7 +19,9 @@ REWARD_COLOR = arcade.color.AMBER
 EMPTY_COLOR = arcade.color.ANTIQUE_WHITE
 
 
-class Display(arcade.Window, snake_game.Game):
+#class Display(arcade.Window, snake_game.Game):
+class Display(arcade.Window, Game):
+
     """Main welcome window
     """
     def __init__(self, game):
@@ -76,8 +80,15 @@ class Display(arcade.Window, snake_game.Game):
             arcade.close_window()
 
 
-# Main code entry point
-if __name__ == "__main__":
-    x = snake_game.Game()
+def main():
+    x = Game()
     app = Display(x)
     arcade.run()
+
+# Main code entry point
+if __name__ == "__main__":
+    #x = snake_game.Game()
+    # x = Game()
+    # app = Display(x)
+    # arcade.run()
+    main()
