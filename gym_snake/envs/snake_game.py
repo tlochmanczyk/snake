@@ -53,7 +53,7 @@ class Snake:
 class Board:
     def __init__(self, size=10):
         self.size = size
-        self.board = self.clear()    # (e)mpty, envs (t)ail,  envs (h)ead, (r)eward
+        self.board = self.clear()
 
     def fill(self, x, y, var):
         self.board[y][x] = var
@@ -92,15 +92,12 @@ class Game:
 
     def draw(self):
         self.board.board = self.board.clear()
-        #self.board.cls()
 
         self.board.fill(*(self.loot.get_coordinates()), '|')
 
         position = self.snake.get_position()
         for pos in position:
             self.board.fill(*pos, '#')
-
-        # self.board.print_game()
 
     def rule_check(self):
         if self.loot.get_coordinates() == self.snake.get_position()[0]:
