@@ -1,7 +1,5 @@
 import arcade
 import random
-print('dupa')
-#import snake_game
 from .snake_game import Game
 
 SQUARE_SIZE = 25
@@ -19,26 +17,17 @@ REWARD_COLOR = arcade.color.AMBER
 EMPTY_COLOR = arcade.color.ANTIQUE_WHITE
 
 
-#class Display(arcade.Window, snake_game.Game):
 class Display(arcade.Window, Game):
-
-    """Main welcome window
-    """
     def __init__(self, game):
-        """Initialize the window
-        """
         self.game = game
-        self.board = game.board.board #= self.board_mock() #
+        self.board = game.board.board
         self.key = None
 
         super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE)
 
         arcade.set_background_color(arcade.color.ARSENIC)
 
-
-
     def on_draw(self):
-
         arcade.start_render()
 
         for row in range(ROWS):
@@ -73,7 +62,6 @@ class Display(arcade.Window, Game):
         elif symbol == arcade.key.LEFT:
             self.key = 'u'
 
-
     def on_update(self, delta_time):
         self.board, _, rules, _ = self.game.engine(self.key)
         if not rules:
@@ -85,10 +73,6 @@ def main():
     app = Display(x)
     arcade.run()
 
-# Main code entry point
+
 if __name__ == "__main__":
-    #x = snake_game.Game()
-    # x = Game()
-    # app = Display(x)
-    # arcade.run()
     main()
