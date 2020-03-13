@@ -1,0 +1,7 @@
+tkinter
+pyperclip
+gym_snake
+gym
+numpy
+copy
+arcade
